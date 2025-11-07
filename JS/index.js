@@ -1,3 +1,4 @@
+// Auto-scrolling categories functionality
 document.addEventListener('DOMContentLoaded', function() {
     const track = document.getElementById('categoriesTrack');
     const cards = document.querySelectorAll('.category-card');
@@ -7,9 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Calculate how many cards to show at once based on screen width
     function getCardsPerView() {
-        if (window.innerWidth < 576) return 1;
-        if (window.innerWidth < 992) return 2;
-        return 3;
+        if (window.innerWidth < 768) return 1;    // Mobile: 1 card
+        if (window.innerWidth < 992) return 2;    // Tablet: 2 cards
+        return 3;                                 // Desktop: 3 cards
     }
     
     let cardsPerView = getCardsPerView();
@@ -131,9 +132,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle window resize
     window.addEventListener('resize', () => {
-        cardsPerView = getCardsPerView();
-        createIndicators();
-        updateTrackPosition();
+        const newCardsPerView = getCardsPerView();
+        if (newCardsPerView !== cardsPerView) {
+            cardsPerView = newCardsPerView;
+            createIndicators();
+            currentPosition = 0; // Reset to first slide
+            updateTrackPosition();
+        }
     });
     
     // Pause auto-scroll on hover
