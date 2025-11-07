@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password - Trendora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/bg.css">
+</head>
+<body class="bg-light">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="card shadow">
+                    <div class="card-body p-4">
+                        <!-- Step 1: Enter Email -->
+                        <div id="step1">
+                            <h2 class="card-title text-center mb-4">Reset Your Password</h2>
+                            <p class="text-muted text-center mb-4">Enter your email address and we'll send you a verification code to reset your password.</p>
+                            
+                            <form id="emailForm">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                </div>
+                                
+                                <div class="d-grid">
+                                    <button type="button" class="btn btn-primary btn-lg">Send Verification Code</button>
+                                </div>
+                            </form>
+                            
+                            <div class="text-center mt-3">
+                                <a href="login.html" class="text-decoration-none">Back to Sign In</a>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Enter OTP -->
+                        <div id="step2" class="d-none">
+                            <h2 class="card-title text-center mb-4">Enter Verification Code</h2>
+                            <p class="text-muted text-center mb-4">We've sent a 6-digit code to <span id="userEmail" class="fw-bold">user@example.com</span></p>
+                            
+                            <form id="otpForm">
+                                <div class="mb-4">
+                                    <label for="otp" class="form-label">Verification Code</label>
+                                    <div class="d-flex justify-content-between">
+                                        <input type="text" class="form-control text-center me-2 otp-input" maxlength="1" pattern="[0-9]" required>
+                                        <input type="text" class="form-control text-center me-2 otp-input" maxlength="1" pattern="[0-9]" required>
+                                        <input type="text" class="form-control text-center me-2 otp-input" maxlength="1" pattern="[0-9]" required>
+                                        <input type="text" class="form-control text-center me-2 otp-input" maxlength="1" pattern="[0-9]" required>
+                                        <input type="text" class="form-control text-center me-2 otp-input" maxlength="1" pattern="[0-9]" required>
+                                        <input type="text" class="form-control text-center otp-input" maxlength="1" pattern="[0-9]" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3 text-center">
+                                    <p class="text-muted">Didn't receive the code? <a href="javascript:void(0)" onclick="resendOTP()" class="text-decoration-none">Resend</a></p>
+                                    <div id="countdown" class="text-muted small">Resend available in <span id="timer">60</span> seconds</div>
+                                </div>
+                                
+                                <div class="d-grid">
+                                    <button type="button" class="btn btn-primary btn-lg" onclick="verifyOTP()">Verify Code</button>
+                                </div>
+                            </form>
+                            
+                            <div class="text-center mt-3">
+                                <a href="javascript:void(0)"  class="text-decoration-none">Use different email</a>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Reset Password -->
+                        <div id="step3" class="d-none">
+                            <h2 class="card-title text-center mb-4">Create New Password</h2>
+                            <p class="text-muted text-center mb-4">Your identity has been verified. Please create a new password.</p>
+                            
+                            <form id="passwordForm">
+                                <div class="mb-3">
+                                    <label for="newPassword" class="form-label">New Password</label>
+                                    <input type="password" class="form-control" id="newPassword" placeholder="Enter new password" required>
+                                    <div class="form-text">
+                                        Password must be at least 8 characters with a mix of letters and numbers.
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm new password" required>
+                                </div>
+                                
+                                <div class="d-grid">
+                                    <button type="button" class="btn btn-primary btn-lg">Reset Password</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Step 4: Success Message -->
+                        <div id="step4" class="d-none">
+                            <div class="text-center">
+                                <div class="mb-4">
+                                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </div>
+                                <h2 class="card-title text-center mb-3">Password Reset Successful!</h2>
+                                <p class="text-muted mb-4">Your password has been successfully reset. You can now sign in with your new password.</p>
+                                
+                                <div class="d-grid">
+                                    <a href="login.html" class="btn btn-primary btn-lg">Sign In Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+</body>
+</html>

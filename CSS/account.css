@@ -1,0 +1,75 @@
+.navbar-brand {
+            font-weight: bold;
+            font-size: 1.8rem;
+        }.footer-links a {
+            text-decoration: none;
+            color: #6c757d;
+        }
+        .footer-links a:hover {
+            color: #000;
+        }
+        .rating {
+            color: #ffc107;
+        }
+        .newsletter-section {
+            background-color: #fff;
+            padding: 60px 0;
+        }
+        .footer-section {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        .footer-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+        .payment-icons {
+            font-size: 2rem;
+            color: #fff;
+            margin-right: 10px;
+        }
+        .social-icons {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #aaa;
+            transition: color 0.3s;
+        }
+        .social-icons:hover {
+            color: #fff;
+        }
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+         body { background-color: #f5f6f8; }
+        .profile-card {
+            background: white; border-radius: 10px; padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        }
+        .profile-pic {
+            width: 130px; height: 130px; border-radius: 50%;
+            object-fit: cover; border: 3px solid #212121;
+        }
+        .btn-save { background: #212121; color: #fff; }
+        .btn-save:hover { background: #111; }
+        .orders-table { background: white; border-radius: 10px; padding: 20px; }
+        th { background: #212121; color: white; }

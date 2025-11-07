@@ -1,0 +1,43 @@
+  .navbar-brand {
+            font-weight: bold;
+            font-size: 1.8rem;
+        } .footer-links a {
+            text-decoration: none;
+            color: #6c757d;
+        }
+        .footer-links a:hover {
+            color: #000;
+        }
+        .rating {
+            color: #ffc107;
+        }
+        .newsletter-section {
+            background-color: #fff;
+            padding: 60px 0;
+        }
+        .footer-section {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        .footer-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }

@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trendora - Explore Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="css/explore.css">
+</head>
+<body>
+    <!-- Navigation -->
+     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Trendora</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="explore.html">Explore</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            <li><a class="dropdown-item" href="men.html">Men</a></li>
+                            <li><a class="dropdown-item" href="women.html">Women</a></li>
+                            <li><a class="dropdown-item" href="boys.html">Boys</a></li>
+                            <li><a class="dropdown-item" href="girls.html">Girls</a></li>
+                            <li><a class="dropdown-item" href="kids.html">kids</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="new.html">New Arrivals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sale.html">Sale</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+                      <a href="cart.html" class="btn btn-outline-dark me-2"><i class="fas fa-shopping-cart"></i></a>
+                 <a href="account.html" class="btn btn-outline-dark me-2"><i class="fas fa-user"></i></a>
+                <div class="d-flex align-items-center me-2">
+                 <form class="d-flex me-auto">
+                    <input class="form-control search-input" type="search" placeholder="Search products...">
+                    <button class="btn btn-dark ms-2"><i class="fas fa-search"></i></button>
+                
+                </form>
+                  
+                 
+                </div>
+                   <a href="login.html" class="btn btn-dark"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Explore Our Collection</h1>
+            <p class="lead mb-4">Find your perfect style from thousands of products</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="row">
+                <!-- Filter Sidebar -->
+                <div class="col-lg-3 mb-4">
+                    <div class="filter-card card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span>Filters</span>
+                            <button class="btn btn-sm btn-outline-secondary">Clear All</button>
+                        </div>
+                        <div class="card-body">
+                            <!-- Category Filter -->
+                            <div class="mb-4">
+                                <h6 class="fw-bold mb-3">Categories</h6>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-action active-category">All Products</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Men's Fashion</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Women's Fashion</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Accessories</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Footwear</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Price Range Filter -->
+                            <div class="mb-4">
+                                <h6 class="fw-bold mb-3">Price Range</h6>
+                                <input type="range" class="form-range price-range" min="0" max="500" step="10">
+                                <div class="price-values">
+                                    <span>$0</span>
+                                    <span>$500</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Size Filter -->
+                            <div class="mb-4">
+                                <h6 class="fw-bold mb-3">Size</h6>
+                                <div class="d-flex flex-wrap">
+                                    <div class="form-check me-3 mb-2">
+                                        <input class="form-check-input" type="checkbox" id="sizeS">
+                                        <label class="form-check-label" for="sizeS">S</label>
+                                    </div>
+                                    <div class="form-check me-3 mb-2">
+                                        <input class="form-check-input" type="checkbox" id="sizeM">
+                                        <label class="form-check-label" for="sizeM">M</label>
+                                    </div>
+                                    <div class="form-check me-3 mb-2">
+                                        <input class="form-check-input" type="checkbox" id="sizeL">
+                                        <label class="form-check-label" for="sizeL">L</label>
+                                    </div>
+                                    <div class="form-check me-3 mb-2">
+                                        <input class="form-check-input" type="checkbox" id="sizeXL">
+                                        <label class="form-check-label" for="sizeXL">XL</label>
+                                    </div>
+                                    <div class="form-check me-3 mb-2">
+                                        <input class="form-check-input" type="checkbox" id="sizeXXL">
+                                        <label class="form-check-label" for="sizeXXL">XXL</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Brand Filter -->
+                            <div class="mb-4">
+                                <h6 class="fw-bold mb-3">Brand</h6>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="brandNike">
+                                    <label class="form-check-label" for="brandNike">Nike</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="brandAdidas">
+                                    <label class="form-check-label" for="brandAdidas">Adidas</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="brandZara">
+                                    <label class="form-check-label" for="brandZara">Zara</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="brandHM">
+                                    <label class="form-check-label" for="brandHM">H&M</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="brandLevis">
+                                    <label class="form-check-label" for="brandLevis">Levi's</label>
+                                </div>
+                            </div>
+                            
+                            <!-- Color Filter -->
+                            <div class="mb-4">
+                                <h6 class="fw-bold mb-3">Color</h6>
+                                <div class="d-flex flex-wrap">
+                                    <div class="form-check me-3 mb-2">
+                                        <input class="form-check-input" type="checkbox" id="colorBlack">
+                                        <label class="form-check-label" for="colorBlack">Black</label>
+                                    </div>
+                                    <div class="form-check me-3 mb-2">
+                                        <input class="form-check-input" type="checkbox" id="colorWhite">
+                                        <label class="form-check-label" for="colorWhite">White</label>
+                                    </div>
+                                    <div class="form-check me-3 mb-2">
+                                        <input class="form-check-input" type="checkbox" id="colorBlue">
+                                        <label class="form-check-label" for="colorBlue">Blue</label>
+                                    </div>
+                                    <div class="form-check me-3 mb-2">
+                                        <input class="form-check-input" type="checkbox" id="colorRed">
+                                        <label class="form-check-label" for="colorRed">Red</label>
+                                    </div>
+                                    <div class="form-check me-3 mb-2">
+                                        <input class="form-check-input" type="checkbox" id="colorGreen">
+                                        <label class="form-check-label" for="colorGreen">Green</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Rating Filter -->
+                            <div class="mb-4">
+                                <h6 class="fw-bold mb-3">Rating</h6>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="ratingFilter" id="ratingAll" checked>
+                                    <label class="form-check-label" for="ratingAll">All Ratings</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="ratingFilter" id="rating4">
+                                    <label class="form-check-label" for="rating4">
+                                        <span class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i> & Above
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="ratingFilter" id="rating3">
+                                    <label class="form-check-label" for="rating3">
+                                        <span class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i> & Above
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Products Grid -->
+                <div class="col-lg-9">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="mb-0">All Products</h4>
+                        <div class="d-flex align-items-center">
+                            <span class="me-2">Sort by:</span>
+                            <select class="form-select form-select-sm" style="width: auto;">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating">Highest Rated</option>
+                                <option value="newest">Newest</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <!-- Product 1 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card product-card h-100">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                         class="card-img-top product-img" alt="Classic White T-Shirt">
+                                    <span class="product-badge">New</span>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">Classic White T-Shirt</h5>
+                                    <p class="card-text text-muted">Nike</p>
+                                    <div class="rating mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span class="text-muted ms-1">(4.5)</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <div>
+                                            <span class="price">$29.99</span>
+                                            <span class="original-price">$39.99</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 mt-3">
+                                        <button class="btn btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal1">View Details</button>
+                                        <button class="btn btn-add-to-cart">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 2 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card product-card h-100">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                         class="card-img-top product-img" alt="Denim Jacket">
+                                    <span class="product-badge" style="background-color: #dc3545;">Sale 20%</span>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">Denim Jacket</h5>
+                                    <p class="card-text text-muted">Levi's</p>
+                                    <div class="rating mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <span class="text-muted ms-1">(4.2)</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <div>
+                                            <span class="price">$79.99</span>
+                                            <span class="original-price">$99.99</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 mt-3">
+                                        <button class="btn btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal2">View Details</button>
+                                        <button class="btn btn-add-to-cart">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 3 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card product-card h-100">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                         class="card-img-top product-img" alt="Floral Summer Dress">
+                                    <span class="product-badge">New</span>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">Floral Summer Dress</h5>
+                                    <p class="card-text text-muted">Zara</p>
+                                    <div class="rating mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span class="text-muted ms-1">(4.8)</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <div>
+                                            <span class="price">$49.99</span>
+                                            <span class="original-price">$69.99</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 mt-3">
+                                        <button class="btn btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal3">View Details</button>
+                                        <button class="btn btn-add-to-cart">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 4 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card product-card h-100">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                         class="card-img-top product-img" alt="Running Shoes">
+                                    <span class="product-badge" style="background-color: #dc3545;">Sale 25%</span>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">Running Shoes</h5>
+                                    <p class="card-text text-muted">Adidas</p>
+                                    <div class="rating mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span class="text-muted ms-1">(4.6)</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <div>
+                                            <span class="price">$89.99</span>
+                                            <span class="original-price">$119.99</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 mt-3">
+                                        <button class="btn btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal4">View Details</button>
+                                        <button class="btn btn-add-to-cart">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 5 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card product-card h-100">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                         class="card-img-top product-img" alt="Leather Handbag">
+                                    <span class="product-badge">New</span>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">Leather Handbag</h5>
+                                    <p class="card-text text-muted">H&M</p>
+                                    <div class="rating mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <span class="text-muted ms-1">(4.3)</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <div>
+                                            <span class="price">$129.99</span>
+                                            <span class="original-price">$159.99</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 mt-3">
+                                        <button class="btn btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal5">View Details</button>
+                                        <button class="btn btn-add-to-cart">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 6 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card product-card h-100">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                         class="card-img-top product-img" alt="Slim Fit Jeans">
+                                    <span class="product-badge" style="background-color: #dc3545;">Sale 25%</span>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">Slim Fit Jeans</h5>
+                                    <p class="card-text text-muted">Levi's</p>
+                                    <div class="rating mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <span class="text-muted ms-1">(4.4)</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <div>
+                                            <span class="price">$59.99</span>
+                                            <span class="original-price">$79.99</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 mt-3">
+                                        <button class="btn btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal6">View Details</button>
+                                        <button class="btn btn-add-to-cart">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <nav aria-label="Product pagination" class="mt-5">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modals -->
+    
+    <!-- Modal 1 -->
+    <div class="modal fade" id="productModal1" tabindex="-1" aria-labelledby="productModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModal1Label">Classic White T-Shirt</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 class="modal-product-img" alt="Classic White T-Shirt">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>$29.99 <small class="text-muted"><del>$39.99</del></small></h4>
+                            <p class="text-muted">Nike</p>
+                            <div class="rating mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="ms-2">4.5 (128 reviews)</span>
+                            </div>
+                            <p>Classic white t-shirt made from 100% premium cotton. Perfect for everyday wear with its comfortable fit and timeless design.</p>
+                            
+                            <div class="mb-3">
+                                <strong>Size:</strong>
+                                <div class="mt-2">
+                                    <span class="size-option active">S</span>
+                                    <span class="size-option">M</span>
+                                    <span class="size-option">L</span>
+                                    <span class="size-option">XL</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <strong>Color:</strong>
+                                <div class="mt-2">
+                                    <span class="color-option active" style="background-color: #ffffff; border: 1px solid #ddd;"></span>
+                                    <span class="color-option" style="background-color: #000000;"></span>
+                                    <span class="color-option" style="background-color: #2b6cb0;"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <strong>Quantity:</strong>
+                                <div class="input-group mt-2" style="width: 150px;">
+                                    <button class="btn btn-outline-secondary" type="button">-</button>
+                                    <input type="text" class="form-control text-center" value="1">
+                                    <button class="btn btn-outline-secondary" type="button">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-dark">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 2 -->
+    <div class="modal fade" id="productModal2" tabindex="-1" aria-labelledby="productModal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModal2Label">Denim Jacket</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 class="modal-product-img" alt="Denim Jacket">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>$79.99 <small class="text-muted"><del>$99.99</del></small></h4>
+                            <p class="text-muted">Levi's</p>
+                            <div class="rating mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="ms-2">4.2 (96 reviews)</span>
+                            </div>
+                            <p>Classic denim jacket with a modern fit. Made from durable cotton denim with a comfortable lining. Perfect for layering in any season.</p>
+                            
+                            <div class="mb-3">
+                                <strong>Size:</strong>
+                                <div class="mt-2">
+                                    <span class="size-option">M</span>
+                                    <span class="size-option active">L</span>
+                                    <span class="size-option">XL</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <strong>Color:</strong>
+                                <div class="mt-2">
+                                    <span class="color-option active" style="background-color: #2b6cb0;"></span>
+                                    <span class="color-option" style="background-color: #000000;"></span>
+                                    <span class="color-option" style="background-color: #744210;"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <strong>Quantity:</strong>
+                                <div class="input-group mt-2" style="width: 150px;">
+                                    <button class="btn btn-outline-secondary" type="button">-</button>
+                                    <input type="text" class="form-control text-center" value="1">
+                                    <button class="btn btn-outline-secondary" type="button">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-dark">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 3 -->
+    <div class="modal fade" id="productModal3" tabindex="-1" aria-labelledby="productModal3Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModal3Label">Floral Summer Dress</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 class="modal-product-img" alt="Floral Summer Dress">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>$49.99 <small class="text-muted"><del>$69.99</del></small></h4>
+                            <p class="text-muted">Zara</p>
+                            <div class="rating mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="ms-2">4.8 (215 reviews)</span>
+                            </div>
+                            <p>Beautiful floral summer dress with a flowing silhouette. Made from lightweight, breathable fabric perfect for warm weather. Features an elastic waist for comfort.</p>
+                            
+                            <div class="mb-3">
+                                <strong>Size:</strong>
+                                <div class="mt-2">
+                                    <span class="size-option active">S</span>
+                                    <span class="size-option">M</span>
+                                    <span class="size-option">L</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <strong>Color:</strong>
+                                <div class="mt-2">
+                                    <span class="color-option active" style="background-color: #e53e3e;"></span>
+                                    <span class="color-option" style="background-color: #805ad5;"></span>
+                                    <span class="color-option" style="background-color: #38a169;"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <strong>Quantity:</strong>
+                                <div class="input-group mt-2" style="width: 150px;">
+                                    <button class="btn btn-outline-secondary" type="button">-</button>
+                                    <input type="text" class="form-control text-center" value="1">
+                                    <button class="btn btn-outline-secondary" type="button">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-dark">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 4 -->
+    <div class="modal fade" id="productModal4" tabindex="-1" aria-labelledby="productModal4Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModal4Label">Running Shoes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 class="modal-product-img" alt="Running Shoes">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>$89.99 <small class="text-muted"><del>$119.99</del></small></h4>
+                            <p class="text-muted">Adidas</p>
+                            <div class="rating mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="ms-2">4.6 (178 reviews)</span>
+                            </div>
+                            <p>High-performance running shoes with advanced cushioning technology. Designed for comfort and support during long runs. Breathable mesh upper with durable rubber outsole.</p>
+                            
+                            <div class="mb-3">
+                                <strong>Size:</strong>
+                                <div class="mt-2">
+                                    <span class="size-option">8</span>
+                                    <span class="size-option active">9</span>
+                                    <span class="size-option">10</span>
+                                    <span class="size-option">11</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <strong>Color:</strong>
+                                <div class="mt-2">
+                                    <span class="color-option active" style="background-color: #000000;"></span>
+                                    <span class="color-option" style="background-color: #ffffff; border: 1px solid #ddd;"></span>
+                                    <span class="color-option" style="background-color: #2b6cb0;"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <strong>Quantity:</strong>
+                                <div class="input-group mt-2" style="width: 150px;">
+                                    <button class="btn btn-outline-secondary" type="button">-</button>
+                                    <input type="text" class="form-control text-center" value="1">
+                                    <button class="btn btn-outline-secondary" type="button">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-dark">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="productModal5" tabindex="-1" aria-labelledby="productModal5Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModal5Label">Leather Handbag</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 class="modal-product-img" alt="Leather Handbag">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>$129.99 <small class="text-muted"><del>$159.99</del></small></h4>
+                            <p class="text-muted">H&M</p>
+                            <div class="rating mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="ms-2">4.3 (142 reviews)</span>
+                            </div>
+                            <p>Elegant leather handbag with multiple compartments. Made from genuine leather with gold-tone hardware. Features an adjustable strap and secure zip closure.</p>
+                            
+                            <div class="mb-3">
+                                <strong>Size:</strong>
+                                <div class="mt-2">
+                                    <span class="size-option active">One Size</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <strong>Color:</strong>
+                                <div class="mt-2">
+                                    <span class="color-option active" style="background-color: #000000;"></span>
+                                    <span class="color-option" style="background-color: #744210;"></span>
+                                    <span class="color-option" style="background-color: #e53e3e;"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <strong>Quantity:</strong>
+                                <div class="input-group mt-2" style="width: 150px;">
+                                    <button class="btn btn-outline-secondary" type="button">-</button>
+                                    <input type="text" class="form-control text-center" value="1">
+                                    <button class="btn btn-outline-secondary" type="button">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-dark">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="productModal6" tabindex="-1" aria-labelledby="productModal6Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModal6Label">Slim Fit Jeans</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 class="modal-product-img" alt="Slim Fit Jeans">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>$59.99 <small class="text-muted"><del>$79.99</del></small></h4>
+                            <p class="text-muted">Levi's</p>
+                            <div class="rating mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="ms-2">4.4 (167 reviews)</span>
+                            </div>
+                            <p>Slim fit jeans with stretch for comfort and mobility. Made from premium denim with a modern cut that flatters your silhouette. Perfect for casual and smart-casual occasions.</p>
+                            
+                            <div class="mb-3">
+                                <strong>Size:</strong>
+                                <div class="mt-2">
+                                    <span class="size-option">30</span>
+                                    <span class="size-option active">32</span>
+                                    <span class="size-option">34</span>
+                                    <span class="size-option">36</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <strong>Color:</strong>
+                                <div class="mt-2">
+                                    <span class="color-option active" style="background-color: #2b6cb0;"></span>
+                                    <span class="color-option" style="background-color: #000000;"></span>
+                                    <span class="color-option" style="background-color: #744210;"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <strong>Quantity:</strong>
+                                <div class="input-group mt-2" style="width: 150px;">
+                                    <button class="btn btn-outline-secondary" type="button">-</button>
+                                    <input type="text" class="form-control text-center" value="1">
+                                    <button class="btn btn-outline-secondary" type="button">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-dark">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="footer-heading">SHOP</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="footer-heading">INFORMATION</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Our Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="footer-heading">CUSTOMER SERVICE</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Store Guide</a></li>
+                    </ul>
+                </div>
+  
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="footer-heading">PAYMENT METHODS</h5>
+                    <div class="mb-3">
+                        <i class="fab fa-cc-visa payment-icons"></i>
+                        <i class="fab fa-cc-mastercard payment-icons"></i>
+                        <i class="fab fa-cc-paypal payment-icons"></i>
+                    </div>
+                    
+                    <h5 class="footer-heading mt-4">FOLLOW US</h5>
+                    <div>
+                        <a href="#" class="social-icons"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icons"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icons"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icons"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <hr style="border-color: #444;">
+            
+         
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="copyright mb-0">© 2025 Trendora. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="copyright me-3">Privacy Policy</a>
+                    <a href="#" class="copyright">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

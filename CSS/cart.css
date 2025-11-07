@@ -1,0 +1,89 @@
+.navbar-brand {
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+        .cart-item-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .qty-btn {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #333;
+            background: transparent;
+            cursor: pointer;
+        }
+        .qty-input {
+            width: 50px;
+            text-align: center;
+            border: 1px solid #333;
+            height: 32px;
+        }
+        .remove-btn {
+            color: #d9534f;
+            cursor: pointer;
+        }
+        .order-card {
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #eee;
+            background: #fafafa;
+        }.footer-links a {
+            text-decoration: none;
+            color: #6c757d;
+        }
+        .footer-links a:hover {
+            color: #000;
+        }
+        .rating {
+            color: #ffc107;
+        }
+        .newsletter-section {
+            background-color: #fff;
+            padding: 60px 0;
+        }
+        .footer-section {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        .footer-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+        .payment-icons {
+            font-size: 2rem;
+            color: #fff;
+            margin-right: 10px;
+        }
+        .social-icons {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #aaa;
+            transition: color 0.3s;
+        }
+        .social-icons:hover {
+            color: #fff;
+        }
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
+        }

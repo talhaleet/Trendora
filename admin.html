@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard - Timely</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+    :root {
+        --primary-color: #212121;
+        --secondary-color: #f4f5f7;
+        --accent-color: #4e73df;
+        --success-color: #1cc88a;
+        --warning-color: #f6c23e;
+        --danger-color: #e74a3b;
+    }
+    
+    body { 
+        background: var(--secondary-color); 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .sidebar {
+        width: 220px; 
+        position: fixed; 
+        top: 0; 
+        bottom: 0; 
+        left: 0;
+        background: var(--primary-color); 
+        padding-top: 30px; 
+        color: white;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+    
+    .sidebar a { 
+        color: white; 
+        display: block; 
+        padding: 12px 20px; 
+        text-decoration: none; 
+        transition: all 0.3s;
+        border-left: 3px solid transparent;
+    }
+    
+    .sidebar a:hover, .sidebar a.active { 
+        background: rgba(255, 255, 255, 0.1); 
+        border-left: 3px solid var(--accent-color);
+    }
+    
+    .sidebar a i {
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+    }
+    
+    .content { 
+   
+        padding: 100px;
+    }
+    
+    .btn-dark { 
+        background: var(--primary-color); 
+        border: none;
+    }
+    
+    .btn-dark:hover {
+        background: #333;
+    }
+    
+    img { 
+        border-radius: 6px; 
+        object-fit: cover;
+    }
+    
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        border: none;
+        margin-bottom: 20px;
+        transition: transform 0.3s;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .card-header {
+        background-color: white;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        font-weight: 600;
+    }
+    
+    .stats-card {
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .stats-card i {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .stats-card .number {
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+    
+    .stats-card .label {
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+    
+    .badge {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+    
+    .table th {
+        border-top: none;
+        font-weight: 600;
+        color: #5a5c69;
+    }
+    
+    .section-title {
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+    
+    .form-control, .form-select {
+        border-radius: 5px;
+        border: 1px solid #d1d3e2;
+    }
+    
+    .form-control:focus, .form-select:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+    }
+    
+    @media (max-width: 768px) {
+        .sidebar {
+            width: 70px;
+            text-align: center;
+        }
+        
+        .sidebar span {
+            display: none;
+        }
+        
+        .sidebar a i {
+            margin-right: 0;
+            font-size: 1.2rem;
+        }
+        
+       
+    }
+</style>
+</head>
+<body>
+
+
+<div class="content">
+    <!-- Dashboard Stats -->
+    <section id="dashboard">
+        <h3 class="fw-bold mb-4 section-title">Dashboard</h3>
+        
+        <div class="row mb-4">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Total Products</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="totalProducts">5</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-boxes fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    Total Orders</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="totalOrders">2</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-info shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                    Revenue</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">$349</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                    Pending Orders</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Recent Products
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered text-center">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Image</th><th>Name</th><th>Category</th><th>Price</th><th>Rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentProductsTable">
+                                    <!-- Recent products will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Quick Actions
+                    </div>
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" onclick="scrollToSection('addSection')">
+                                <i class="fas fa-plus-circle me-2"></i>Add New Product
+                            </button>
+                            <button class="btn btn-success" onclick="scrollToSection('productsSection')">
+                                <i class="fas fa-list me-2"></i>View All Products
+                            </button>
+                            <button class="btn btn-info" onclick="scrollToSection('ordersSection')">
+                                <i class="fas fa-shopping-cart me-2"></i>Manage Orders
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add / Update Product -->
+    <section id="addSection" class="mt-5">
+        <h3 class="fw-bold mb-3 section-title" id="formTitle">Add Product</h3>
+
+        <form id="productForm" class="row g-3">
+            <input type="hidden" id="editIndex">
+
+            <div class="col-md-3">
+                <label class="form-label">Product ID</label>
+                <input id="pID" type="number" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Name</label>
+                <input id="pName" type="text" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Category</label>
+                <input id="pCat" type="text" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Brand</label>
+                <input id="pBrand" type="text" class="form-control" required>
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Price</label>
+                <input id="pPrice" type="number" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Original Price</label>
+                <input id="pOPrice" type="number" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Color</label>
+                <input id="pColor" type="text" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Rating</label>
+                <input id="pRating" type="number" step="0.1" class="form-control" required>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Size (comma separated)</label>
+                <input id="pSize" type="text" class="form-control" placeholder="e.g., S, M, L">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Is New?</label>
+                <select id="pNew" class="form-select">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Is Sale?</label>
+                <select id="pSale" class="form-select">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+
+            <div class="col-12">
+                <label class="form-label">Description</label>
+                <textarea id="pDesc" class="form-control" rows="2" required></textarea>
+            </div>
+            <div class="col-12">
+                <label class="form-label">Image URL</label>
+                <input id="pImg" type="text" class="form-control" required>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-dark w-100 py-2" id="saveBtn">
+                    <i class="fas fa-save me-2"></i>Save Product
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <hr class="my-5">
+
+    <!-- Products List -->
+    <section id="productsSection">
+        <h3 class="fw-bold mb-3 section-title">Products List</h3>
+
+        <div class="table-responsive">
+            <table class="table table-bordered text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Image</th><th>Name</th><th>Category</th><th>Price</th><th>Color</th><th>Rating</th><th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="productTable">
+                    <!-- Products will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <hr class="my-5">
+
+    <!-- Orders -->
+    <section id="ordersSection">
+        <h3 class="fw-bold mb-3 section-title">Orders</h3>
+
+        <div class="table-responsive">
+            <table class="table table-bordered text-center">
+                <thead class="table-dark">
+                    <tr><th>Order ID</th><th>Customer</th><th>Total</th><th>Status</th><th>Update</th></tr>
+                </thead>
+                <tbody id="ordersTable">
+                    <!-- Orders will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</div>
+
+<script>
+// ✅ Product Storage
+let products = [
+    {
+        id: 1001,
+        name: "Classic Leather Watch",
+        category: "Watches",
+        brand: "Timeless",
+        price: 199,
+        originalPrice: 249,
+        color: "Black",
+        rating: 4.5,
+        size: ["S", "M", "L"],
+        isNew: true,
+        isSale: true,
+        desc: "Elegant leather watch with precision movement and water resistance.",
+        image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+    },
+    {
+        id: 1002,
+        name: "Sport Digital Watch",
+        category: "Watches",
+        brand: "ActiveTime",
+        price: 89,
+        originalPrice: 120,
+        color: "Blue",
+        rating: 4.2,
+        size: ["M", "L"],
+        isNew: false,
+        isSale: true,
+        desc: "Digital sports watch with multiple functions and durable design.",
+        image: "https://images.unsplash.com/photo-1547996160-81dfc10bc5d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+    },
+    {
+        id: 1003,
+        name: "Luxury Gold Watch",
+        category: "Watches",
+        brand: "Prestige",
+        price: 599,
+        originalPrice: 750,
+        color: "Gold",
+        rating: 4.8,
+        size: ["S", "M"],
+        isNew: true,
+        isSale: false,
+        desc: "Premium luxury watch with gold plating and diamond accents.",
+        image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+    },
+    {
+        id: 1004,
+        name: "Minimalist Silver Watch",
+        category: "Watches",
+        brand: "SimpleTime",
+        price: 129,
+        originalPrice: 150,
+        color: "Silver",
+        rating: 4.3,
+        size: ["S", "M", "L"],
+        isNew: false,
+        isSale: false,
+        desc: "Clean and minimalist design with silver finish and leather strap.",
+        image: "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+    },
+    {
+        id: 1005,
+        name: "Smart Fitness Watch",
+        category: "Watches",
+        brand: "TechWear",
+        price: 159,
+        originalPrice: 200,
+        color: "Black",
+        rating: 4.6,
+        size: ["M", "L"],
+        isNew: true,
+        isSale: true,
+        desc: "Smart watch with fitness tracking, heart rate monitor, and smartphone connectivity.",
+        image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1828&q=80"
+    }
+];
+
+// ✅ Orders Example
+let orders = [
+    {id:"#ORD-1823", customer:"Talha", total:"$199", status:"On The Way"},
+    {id:"#ORD-7721", customer:"Haseeb", total:"$150", status:"Delivered"}
+];
+
+// Function to scroll to a section
+function scrollToSection(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+}
+
+function loadProducts(){
+    document.getElementById("productTable").innerHTML = products.map((p,i)=>`
+    <tr>
+        <td><img src="${p.image}" width="60" height="60"></td>
+        <td>${p.name}</td>
+        <td>${p.category}</td>
+        <td>$${p.price}</td>
+        <td>${p.color}</td>
+        <td>${p.rating} <i class="fas fa-star text-warning"></i></td>
+        <td>
+            <button class="btn btn-danger btn-sm" onclick="deleteProduct(${i})">
+                <i class="fas fa-trash"></i> Delete
+            </button>
+            <button class="btn btn-warning btn-sm" onclick="editProduct(${i})">
+                <i class="fas fa-edit"></i> Update
+            </button>
+        </td>
+    </tr>`).join("");
+    
+    // Update recent products table
+    document.getElementById("recentProductsTable").innerHTML = products.slice(0, 3).map(p => `
+    <tr>
+        <td><img src="${p.image}" width="50" height="50"></td>
+        <td>${p.name}</td>
+        <td>${p.category}</td>
+        <td>$${p.price}</td>
+        <td>${p.rating} <i class="fas fa-star text-warning"></i></td>
+    </tr>`).join("");
+    
+    // Update total products count
+    document.getElementById("totalProducts").textContent = products.length;
+}
+
+function deleteProduct(i){ 
+    if(confirm("Are you sure you want to delete this product?")) {
+        products.splice(i,1); 
+        loadProducts(); 
+    }
+}
+
+function editProduct(i){
+    let p = products[i];
+    editIndex.value=i; pID.value=p.id; pName.value=p.name; pCat.value=p.category; pBrand.value=p.brand;
+    pPrice.value=p.price; pOPrice.value=p.originalPrice; pColor.value=p.color; pRating.value=p.rating;
+    pSize.value=p.size.join(", "); pNew.value=p.isNew; pSale.value=p.isSale; pDesc.value=p.desc; pImg.value=p.image;
+    formTitle.innerText="Update Product"; saveBtn.innerHTML='<i class="fas fa-save me-2"></i>Save Changes';
+    
+    // Scroll to the form
+    scrollToSection('addSection');
+}
+
+productForm.addEventListener("submit", e=>{
+    e.preventDefault();
+    let p = {
+        id:pID.value, name:pName.value, category:pCat.value, brand:pBrand.value,
+        price:pPrice.value, originalPrice:pOPrice.value, color:pColor.value, rating:pRating.value,
+        size:pSize.value.split(",").map(s=>s.trim()),
+        isNew:(pNew.value==="true"), isSale:(pSale.value==="true"),
+        desc:pDesc.value, image:pImg.value
+    };
+
+    if(editIndex.value==="") {
+        products.push(p);
+    } else {
+        products[editIndex.value]=p;
+    }
+
+    productForm.reset(); 
+    editIndex.value=""; 
+    formTitle.innerText="Add Product"; 
+    saveBtn.innerHTML='<i class="fas fa-save me-2"></i>Save Product'; 
+    loadProducts();
+    
+    // Show success message
+    alert("Product saved successfully!");
+});
+
+function loadOrders(){
+    document.getElementById("ordersTable").innerHTML = orders.map(o=>`
+    <tr>
+        <td>${o.id}</td><td>${o.customer}</td><td>${o.total}</td>
+        <td><span class="badge ${getStatusBadgeClass(o.status)}">${o.status}</span></td>
+        <td>
+            <button class="btn btn-success btn-sm" onclick="updateStatus('${o.id}','Delivered')">
+                <i class="fas fa-check"></i> Delivered
+            </button>
+            <button class="btn btn-info btn-sm" onclick="updateStatus('${o.id}','On The Way')">
+                <i class="fas fa-truck"></i> On The Way
+            </button>
+            <button class="btn btn-danger btn-sm" onclick="updateStatus('${o.id}','Canceled')">
+                <i class="fas fa-times"></i> Canceled
+            </button>
+        </td>
+    </tr>`).join("");
+    
+    // Update total orders count
+    document.getElementById("totalOrders").textContent = orders.length;
+}
+
+function getStatusBadgeClass(status) {
+    switch(status) {
+        case 'Delivered': return 'bg-success';
+        case 'On The Way': return 'bg-info';
+        case 'Canceled': return 'bg-danger';
+        default: return 'bg-secondary';
+    }
+}
+
+function updateStatus(id,status){ 
+    orders = orders.map(o => o.id==id ? {...o,status} : o); 
+    loadOrders(); 
+    
+    // Show status update message
+    alert(`Order ${id} status updated to: ${status}`);
+}
+
+// Initialize the dashboard
+loadProducts(); 
+loadOrders();
+</script>
+
+</body>
+</html>
